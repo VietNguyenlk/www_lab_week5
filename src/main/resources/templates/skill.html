@@ -26,10 +26,10 @@
                 <span th:if="${skill.getSkill_type() == 2}">HARD</span>
             </td>
             <td>
-                <a th:href="@{'/cand-by-skill/' + ${skill.getSkill_id()}}" class="btn btn-success">Tìm ứng viên</a>
-                <a th:href="@{'/update-skill/' + ${skill.getSkill_id()}}" class="btn btn-warning">Sửa</a>
-                <a th:href="@{'/delete-skill/' + ${skill.getSkill_id()}}" class="btn btn-danger">Xóa</a>
-                <a th:href="@{'/active-skill/' + ${skill.getSkill_id()}}" class="btn btn-info">Active</a>
+                <a th:href="@{'/cand-by-skill/' + ${skill.getSkill_id()}}" class="btn  btn-light">Tìm ứng viên</a>
+                <a th:href="@{'/update-skill/' + ${skill.getSkill_id()}}" class="btn btn-dark">Sửa</a>
+                <a th:href="@{'/delete-skill/' + ${skill.getSkill_id()}}" class="btn btn-success">Xóa</a>
+                <a th:href="@{'/active-skill/' + ${skill.getSkill_id()}}" class="btn btn-warning">Active</a>
             </td>
         </tr>
         </tbody>

@@ -26,27 +26,27 @@ public class JobControll {
         this.jobDao = jobDao;
         this.skillDao=skillDao;
     }
-    @GetMapping("/job-manager/{compID}")
-    public String showAllJob(@PathVariable Long compID,
-                             @RequestParam(defaultValue = "0") int page,
-                             @RequestParam(defaultValue = "5") int size,
-                             Model model) {
-        Page<Job> jobs = jobDao.getAll(page, size);
-
-        Map<Job, List<Skill>> map = new HashMap<>();
-        for (Job job : jobs.getContent()) {
-            List<Skill> skills = skillDao.getSkillsForJob(job.getJob_id());
-            map.put(job, skills);
-        }
-
-        model.addAttribute("mapJob", map);
-        model.addAttribute("compID", compID);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("pageSize", size);
-        model.addAttribute("totalPages", jobs.getTotalPages());
-
-        return "job-manager";
-    }
+//    @GetMapping("/job-manager/{compID}")
+//    public String showAllJob(@PathVariable Long compID,
+//                             @RequestParam(defaultValue = "0") int page,
+//                             @RequestParam(defaultValue = "5") int size,
+//                             Model model) {
+//        Page<Job> jobs = jobDao.getAll(page, size);
+//
+//        Map<Job, List<Skill>> map = new HashMap<>();
+//        for (Job job : jobs.getContent()) {
+//            List<Skill> skills = skillDao.getSkillsForJob(job.getJob_id());
+//            map.put(job, skills);
+//        }
+//
+//        model.addAttribute("mapJob", map);
+//        model.addAttribute("compID", compID);
+//        model.addAttribute("currentPage", page);
+//        model.addAttribute("pageSize", size);
+//        model.addAttribute("totalPages", jobs.getTotalPages());
+//
+//        return "job-manager";
+//    }
     @GetMapping("/add-job/{compID}")
     public String showAddJobForm(@PathVariable Long compID, Model model) {
         List<Skill> skills=skillDao.getAllSkillList();

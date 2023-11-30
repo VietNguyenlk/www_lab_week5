@@ -21,19 +21,7 @@ public class CandidateDao {
         this.entityManager = entityManager;
     }
 
-    @Transactional
-    public boolean logIn(long cand_id, String pass) {
-        try {
-            Candidate candidate = entityManager.find(Candidate.class, cand_id);
-            // Lấy phone làm pass
-            if (candidate != null && candidate.getPhone().equalsIgnoreCase(pass)) {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+
 
     @Transactional
     public Map<Integer, Long> getCandByYearBorn() {
